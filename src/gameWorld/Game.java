@@ -8,10 +8,30 @@ public class Game {
 		runGame();
 	}
 	
+	public static void print(Object obj) {
+		System.out.println(obj.toString());
+	}
+	
+	static Room currentRoom = World.buildWorld();
+	
+	public static Room getRoom() {
+		return currentRoom;
+	}
+	
+	static ArrayList<Item> inventory = new ArrayList<Item>();
+	
+	public static Item getInvItem(String name) {
+		for(Item it : inventory) {
+			if(it.toString().equals(name)) {
+				return it;
+			}
+		}
+		return null;
+	}
+	
 	public static void runGame() {
-		Room currentRoom = World.buildWorld();
+		Room currentRoom = getRoom();
 		Scanner input = new Scanner(System.in);
-		ArrayList<Item> inventory = new ArrayList<Item>();
 		
 		String command; // Player's command
 		do {
@@ -71,6 +91,40 @@ public class Game {
 					}
 				}
 				System.out.print("\n");
+				break;
+			case "use":
+				System.out.println("You are trying to use "+ words[1] +".");
+				if(currentRoom.getItem(words[1]) != null) {
+					currentRoom.getItem(words[1]).use();
+				} else {
+					boolean found = false;
+					for(Item it : inventory) {
+						if(words[1].equals(it.toString())) {
+							it.use();
+							found = true;
+						}
+					}
+					if(found == false) {
+						System.out.println("No item to use.\n");
+					}
+				}
+				break;
+			case "open":
+				System.out.println("You are trying to open "+ words[1] +".");
+				if(currentRoom.getItem(words[1]) != null) {
+					currentRoom.getItem(words[1]).open();
+				} else {
+					boolean found = false;
+					for(Item it : inventory) {
+						if(words[1].equals(it.toString())) {
+							it.open();
+							found = true;
+						}
+					}
+					if(found == false) {
+						System.out.println("No item to open.\n");
+					}
+				}
 				break;
 			case "x":
 				System.out.println("Goodbye!");

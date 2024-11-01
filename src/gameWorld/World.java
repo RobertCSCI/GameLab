@@ -19,17 +19,23 @@ public class World {
 		quarters.addExit(office, 'u');
 		quarters.addItem("item1", item1);
 		
+		Combination combo = new Combination("combo","Combination for a safe.");
+		quarters.addItem("combo", combo);
+		
 		entrance.addExit(quarters, 'w');
 		entrance.addExit(observatory, 'n');
 		entrance.addExit(cantina, 'e');
 		entrance.addExit(hanger, 's');
 		
+		Safe safe = new Safe("safe", "It's an impressive safe!");
+		entrance.addItem("safe", safe);
+		
 		cantina.addExit(entrance, 'w');
-		quarters.addItem("item2", item2);
+		cantina.addItem("item2", item2);
 		
 		office.addExit(quarters, 'd');
 		office.addExit(vault, 'w');
-		quarters.addItem("item3", item3);
+		office.addItem("item3", item3);
 		
 		armory.addExit(quarters, 's');
 		armory.addExit(observatory, 'e');
