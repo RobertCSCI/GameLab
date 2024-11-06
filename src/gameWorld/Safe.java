@@ -7,23 +7,24 @@ public class Safe extends Item {
 		super(name,desc);
 	}
 	
-	ArrayList<Item> inventory = new ArrayList<Item>();
-	
 	Combination c = new Combination("combo","Combination for a safe.");
 	
 	public void open() {
-		boolean found = false;
-		for(Item it : inventory) {
-			if(it == c) {
+		int count = 0;
+		for(Item it : Game.inventory) {
+			if(it.getInvItem("combo").equals(c)) {
 				Game.print("Using the combination, you open the safe and find a\n"
-						+ "diamond inside! Naturally, you pocket the diamond.");;
-				inventory.add(new Item("Diamond", "This is a diamond!"));
-				found = true;
+						+ "diamond inside! Naturally, you pocket the diamond.");
+				count++;
+			} else {
+				Game.print("The safe is locked and you don't have the "
+				+ "combination.");
 			}
-		}
-		if(found == false) {
-			Game.print("The safe is locked and you don't have the\n"
-					+ "combination.");
+			if (count >= 1) {
+				Item Diamond = new Item("Diamond", "This is a diamond!");
+				Game.inventory.add(Diamond);
+			}
 		}
 	}
 }
+

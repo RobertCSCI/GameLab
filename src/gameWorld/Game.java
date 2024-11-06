@@ -20,7 +20,7 @@ public class Game {
 	
 	static ArrayList<Item> inventory = new ArrayList<Item>();
 	
-	public static Item getInvItem(String name) {
+	public Item getInvItem(String name) {
 		for(Item it : inventory) {
 			if(it.toString().equals(name)) {
 				return it;
