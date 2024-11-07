@@ -3,7 +3,7 @@ package gameWorld;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Game {
+public class Game extends World {
 	public static void main(String[] args) {
 		runGame();
 	}
@@ -51,8 +51,12 @@ public class Game {
 				if(nextRoom == null) {
 					System.out.println("You cannot go that way.\n");
 				} else {
-					currentRoom = nextRoom;
-					System.out.print("\n");
+					if(nextRoom.getLock() == true) {
+						System.out.println("This room is locked.\n");
+					} else {
+						currentRoom = nextRoom;
+						System.out.print("\n");
+					}
 				}
 				break;
 			case "take":

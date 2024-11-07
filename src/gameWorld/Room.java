@@ -3,6 +3,7 @@ package gameWorld;
 import java.util.HashMap;
 
 public class Room {
+	private String name;
 	private String desc;
 	private Room east;
 	private Room west;
@@ -11,9 +12,11 @@ public class Room {
 	private Room up;
 	private Room down;
 	private HashMap<String, Item> item = new HashMap<String, Item>();
+	private boolean lock;
 	
-	public Room(String n) {
-		desc = n;
+	public Room(String n, String d) {
+		name = n;
+		desc = d;
 	}
 	
 	public Room getExit(char x) {
@@ -50,6 +53,14 @@ public class Room {
 		}
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String n) {
+		name = n;
+	}
+	
 	public void addItem(String name, Item i) {
 		item.put(name, i);
 	}
@@ -60,6 +71,14 @@ public class Room {
 	
 	public void removeItem(String n) {
 		item.remove(n);
+	}
+	
+	public boolean getLock() {
+		return lock;
+	}
+	
+	public void setLock(boolean l) {
+		lock = l;
 	}
 	
 	public String toString() {
