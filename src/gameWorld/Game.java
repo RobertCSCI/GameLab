@@ -21,12 +21,17 @@ public class Game extends World {
 	static ArrayList<Item> inventory = new ArrayList<Item>();
 	
 	public Item getInvItem(String name) {
+		Item item = null;
 		for(Item it : inventory) {
 			if(it.toString().equals(name)) {
-				return it;
+				item = it;
 			}
 		}
-		return null;
+		if(item == null) {
+			return null;
+		} else {
+			return item;
+		}
 	}
 	
 	public static void runGame() {

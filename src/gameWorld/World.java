@@ -10,7 +10,7 @@ public class World {
 		Room cantina = new Room("Cantina","Cantina.");
 		Room hanger = new Room("Hanger","Hanger");
 		Room vault = new Room("Vault","Vault");
-		Item keycard = new Item("Keycard", "This is a keycard.");
+		Keycard keycard = new Keycard("Keycard", "This is a keycard.");
 		Item battery = new Item("Battery", "This is a battery.");
 		Item locker = new Item("Locker", "This is a locker.");
 		Item suit = new Item("Suit", "This is a Space Suit.");
@@ -23,7 +23,7 @@ public class World {
 		Combination combo = new Combination("combo","Combination for a safe.");
 		quarters.addItem("combo", combo);
 		
-		entrance.setLock(true);
+		//entrance.setLock(true);
 		entrance.addExit(quarters, 'w');
 		entrance.addExit(observatory, 'n');
 		entrance.addExit(cantina, 'e');
