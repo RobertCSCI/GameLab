@@ -35,7 +35,7 @@ public class Game extends World {
 	}
 	
 	public static void runGame() {
-		Room currentRoom = getRoom();
+		currentRoom = getRoom();
 		Scanner input = new Scanner(System.in);
 		
 		String command; // Player's command
