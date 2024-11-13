@@ -17,7 +17,7 @@ public class World {
 		Item beamsword = new Item("Beamsword", "This is a Beamsword.");
 		Item suit = new Item("Suit", "This is a Space Suit.");
 		Safe safe = new Safe("safe", "It's an impressive safe!");
-		Combination combo = new Combination("combo","Combination for a safe.");
+		Combination combo = new Combination("combo","This is a combination for a safe.");
 		
 		quarters.addExit(entrance, 'e');
 		quarters.addExit(armory, 'n');
