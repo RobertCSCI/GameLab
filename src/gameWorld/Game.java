@@ -2,6 +2,7 @@ package gameWorld;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Game extends World {
 	public static void main(String[] args) {
@@ -13,6 +14,12 @@ public class Game extends World {
 	}
 	
 	static Room currentRoom = World.buildWorld();
+	
+	static HashMap<String, String> rooms = new HashMap<String, String>();
+	
+	public static void popMap() {
+		rooms.put(null, null);
+	}
 	
 	public static Room getRoom() {
 		return currentRoom;

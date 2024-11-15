@@ -1,0 +1,24 @@
+Living Quarters
+This is the Living Quarters.
+#
+Entrance
+This is the Front Entrance to the facility.
+#
+Armory
+This is the Armory.
+#
+Office
+This is the Captain's Office.
+#
+Observatory
+This is the Observatory.
+#
+Cantina
+This is the Cantina.
+#
+Hanger
+This is the Hanger Bay.
+#
+Vault
+This is the Vault in the Captain's Office.
+#
