@@ -24,22 +24,22 @@ public class World {
 		quarters.addExit(office, 'u');
 		quarters.addItem("keycard", keycard);
 		quarters.setLock(false);
-		quarters.addItem("combo", combo);
 		
-		entrance.setLock(false);
 		entrance.addExit(quarters, 'w');
 		entrance.addExit(observatory, 'n');
 		entrance.addExit(cantina, 'e');
 		entrance.addExit(hanger, 's');
+		entrance.setLock(false);
 		
 		cantina.addExit(entrance, 'w');
 		cantina.addItem("battery", battery);
+		cantina.addItem("combo", combo);
 		cantina.setLock(true);
 		
 		office.addExit(quarters, 'd');
 		office.addExit(vault, 'w');
-		office.setLock(false);
 		office.addItem("safe", safe);
+		office.setLock(false);
 		
 		armory.addExit(quarters, 's');
 		armory.addExit(observatory, 'e');
