@@ -22,7 +22,7 @@ public class World {
 		quarters.addExit(entrance, 'e');
 		quarters.addExit(armory, 'n');
 		quarters.addExit(office, 'u');
-		quarters.addItem("Keycard", keycard);
+		quarters.addItem("keycard", keycard);
 		quarters.setLock(false);
 		quarters.addItem("combo", combo);
 		
@@ -33,7 +33,7 @@ public class World {
 		entrance.addExit(hanger, 's');
 		
 		cantina.addExit(entrance, 'w');
-		cantina.addItem("Battery", battery);
+		cantina.addItem("battery", battery);
 		cantina.setLock(true);
 		
 		office.addExit(quarters, 'd');
@@ -43,20 +43,20 @@ public class World {
 		
 		armory.addExit(quarters, 's');
 		armory.addExit(observatory, 'e');
-		armory.addItem("Beamsword", beamsword);
-		armory.addItem("Suit", suit);
+		armory.addItem("beamsword", beamsword);
+		armory.addItem("suit", suit);
 		armory.setLock(false);
 		
 		observatory.addExit(armory, 'w');
 		observatory.addExit(entrance, 's');
-		observatory.setLock(false);
+		observatory.setLock(true);
 		
 		hanger.addExit(entrance, 'n');
-		hanger.addItem("Hyperdrive", hyperdrive);
+		hanger.addItem("hyperdrive", hyperdrive);
 		hanger.setLock(true);
 		
 		vault.addExit(office, 'e');
-		vault.addItem("Codes", codes);
+		vault.addItem("codes", codes);
 		vault.setLock(true);
 		
 		return quarters;
