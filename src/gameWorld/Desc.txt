@@ -22,3 +22,15 @@ This is the Hanger Bay.
 Vault
 This is the Vault in the Captain's Office.
 #
+Hallway
+This is a Hallway.
+#
+Lab
+This is the Laboratory.
+#
+Storage
+This is a Storage Room.
+#
+Maintenance
+This is the Hanger Bay Maintenance Room.
+#
