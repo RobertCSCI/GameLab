@@ -1,5 +1,9 @@
 package gameWorld;
 
+import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +22,21 @@ public class Game extends World {
 	static HashMap<String, String> rooms = new HashMap<String, String>();
 	
 	public static void popMap() {
-		rooms.put(null, null);
+		try {
+			Scanner read = new Scanner(new File("Desc.txt"));
+			while(read.hasNextLine()) {
+				String key = read.nextLine();
+				String value = read.nextLine();
+				if(read.hasNextLine()) {
+					String x = read.nextLine();
+				}
+				rooms.put(key, value);
+			}
+			read.close();
+		}
+		catch (FileNotFoundException ex) {
+			System.out.println("File not Found");
+		}
 	}
 	
 	public static Room getRoom() {
@@ -41,9 +59,45 @@ public class Game extends World {
 		}
 	}
 	
+	public static void saveGame(String fileName) {
+		File f = new File(fileName);
+		try {
+			FileOutputStream fos = new FileOutputStream(f);
+			ObjectOutputStream stream = new ObjectOutputStream(fos);
+			stream.writeObject(currentRoom);
+			stream.writeObject(rooms);
+			stream.writeObject(inventory);
+			stream.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("File "+fileName+" not found.");
+		} catch (IOException ex) {
+		System.out.println("Bummers, man");
+		}
+	}
+	
+	public static void loadGame(String fileName) {
+		File f = new File(fileName);
+		try {
+			FileInputStream fos = new FileInputStream(f);
+			ObjectInputStream stream = new ObjectInputStream(fos);
+			currentRoom = (Room) stream.readObject();
+			rooms = (HashMap) stream.readObject();
+			inventory = (ArrayList) stream.readObject();
+			stream.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("File "+fileName+" not found.");
+			System.exit(0);
+		} catch (IOException ex) {
+			System.out.println("Bummers, man");
+		} catch (ClassNotFoundException ex) {
+			System.out.println("Not an object.");
+		}
+	}
+	
+	public static Scanner input = new Scanner(System.in);
+	
 	public static void runGame() {
 		currentRoom = getRoom();
-		Scanner input = new Scanner(System.in);
 		
 		String command; // Player's command
 		do {
@@ -62,14 +116,27 @@ public class Game extends World {
 				Room nextRoom = currentRoom.getExit(command.charAt(0));
 				if(nextRoom == null) {
 					System.out.println("You cannot go that way.\n");
-				} else {
-					if(nextRoom.getLock() == true) {
+					} else {
+						if(nextRoom.getName().equals("Hanger")) {
+							int count = 0;
+							for(Item it : inventory) {
+								if(it.toString().equals("Spacesuit")) {
+									count++;
+								}
+							}
+						if(count == 0) {
+							System.out.println("You need a spacesuit to reach the Hanger.\n");
+						} else {
+							currentRoom = nextRoom;
+							System.out.print("\n");
+						}
+					} else if(nextRoom.getLock() == true) {
 						System.out.println("This room is locked.\n");
 					} else {
 						currentRoom = nextRoom;
 						System.out.print("\n");
+						}
 					}
-				}
 				break;
 			case "take":
 				System.out.println("You are trying to take "+ words[1] +".");
@@ -144,6 +211,15 @@ public class Game extends World {
 				break;
 			case "x":
 				System.out.println("Goodbye!");
+				break;
+			case "save":
+				saveGame("saveGame");
+				break;
+			case "load":
+				loadGame("saveGame");
+				break;
+			case "talk":
+				currentRoom.getNPC(words[1]).talk();
 				break;
 			default:
 				System.out.println("Unknown Command.\n");
