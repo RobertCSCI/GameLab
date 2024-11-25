@@ -22,7 +22,7 @@ public class Safe extends Item {
 			}
 		}
 		if (count >= 1) {
-			Item Diamond = new Item("Diamond", "This is a diamond!");
+			Diamond Diamond = new Diamond("Diamond", "This is a diamond!");
 			Game.inventory.add(Diamond);
 		}
 	}
