@@ -98,6 +98,7 @@ public class Game extends World {
 	
 	public static void runGame() {
 		currentRoom = getRoom();
+		System.out.println("Game start message.");
 		
 		String command; // Player's command
 		do {
@@ -221,6 +222,23 @@ public class Game extends World {
 			case "talk":
 				currentRoom.getNPC(words[1]).talk();
 				break;
+			case "help":
+				System.out.println("Player Commands \n"
+						+ "n: Go north \n"
+						+ "s: Go south \n"
+						+ "e: Go east \n"
+						+ "w: Go west \n"
+						+ "u: Go upwards \n"
+						+ "d: Go downwards \n"
+						+ "take 'item': Take an item \n"
+						+ "look 'item': Examine an item \n"
+						+ "i: Display inventory \n"
+						+ "use 'item': Use an item \n"
+						+ "open 'item': Open an item \n"
+						+ "talk 'name': Talk to person \n"
+						+ "x: Close game \n"
+						+ "save: Save game \n"
+						+ "load: Load game \n");
 			default:
 				System.out.println("Unknown Command.\n");
 			}
