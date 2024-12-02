@@ -52,4 +52,9 @@ public class Manager extends NPC {
 			}
 		}
 	}
+
+	public void give(Item i) {
+		//Keycard keycard2 = new Keycard("Armorykey", "This is the keycard to the Armory.");
+		//Item battery = new Item("Battery", "This is a battery for a spaceship.");
+	}
 }
