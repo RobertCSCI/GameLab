@@ -52,4 +52,8 @@ public class Scientist extends NPC {
 			}
 		}
 	}
+
+	public void give(Item i) {
+		//Combination combo = new Combination("Combo","This is a combination for a safe.");
+	}
 }
