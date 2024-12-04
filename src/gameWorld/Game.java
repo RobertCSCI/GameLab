@@ -93,6 +93,146 @@ public class Game extends World {
 			System.out.println("Not an object.");
 		}
 	}
+
+	public static void processCommand(String command) {
+		String[] words = command.split(" ");
+		
+		switch(words[0]) {
+		case "e":
+		case "w":
+		case "n":
+		case "s":
+		case "u":
+		case "d":
+			Room nextRoom = currentRoom.getExit(command.charAt(0));
+			if(nextRoom == null) {
+				Game.print("You cannot go that way.\n");
+				} else {
+					if(nextRoom.getName().equals("Hanger")) {
+						int count = 0;
+						for(Item it : inventory) {
+							if(it.toString().equals("Spacesuit")) {
+								count++;
+							}
+						}
+					if(count == 0) {
+						Game.print("You need a spacesuit to reach the Hanger.\n");
+					} else {
+						currentRoom = nextRoom;
+						Game.print("\n");
+					}
+				} else if(nextRoom.getLock() == true) {
+					Game.print("This room is locked.\n");
+				} else {
+					currentRoom = nextRoom;
+					Game.print("\n");
+					}
+				}
+			break;
+		case "take":
+			Game.print("You are trying to take "+ words[1] +".");
+			if(currentRoom.getItem(words[1]) != null) {
+				inventory.add(currentRoom.getItem(words[1]));
+				Game.print("You picked up "+ currentRoom.getItem(words[1]) +".\n");
+				currentRoom.removeItem(words[1]);
+			} else {
+				Game.print("No item found.\n");
+			}
+			break;
+		case "look":
+			if(currentRoom.getItem(words[1]) != null) {
+				Game.print(currentRoom.getItem(words[1]).getDesc(words[1])+"\n");
+			} else {
+				boolean found = false;
+				for(Item it : inventory) {
+					if(words[1].equals(it.toString())) {
+						Game.print(it.getDesc(words[1])+"\n");
+						found = true;
+					}
+				}
+				if(found == false) {
+					Game.print("There is no such item.\n");
+				}
+			}
+			break;
+		case "i":
+			if(inventory.size() == 0) {
+				Game.print("Inventory is empty.\n");
+			} else {
+				Game.print("You are carrying: ");
+				for(Item it : inventory) {
+					Game.print(it);
+				}
+			}
+			Game.print("\n");
+			break;
+		case "use":
+			Game.print("You are trying to use "+ words[1] +".");
+			if(currentRoom.getItem(words[1]) != null) {
+				currentRoom.getItem(words[1]).use();
+			} else {
+				boolean found = false;
+				for(Item it : inventory) {
+					if(words[1].equals(it.toString())) {
+						it.use();
+						found = true;
+					}
+				}
+				if(found == false) {
+					Game.print("No item to use.\n");
+				}
+			}
+			break;
+		case "open":
+			Game.print("You are trying to open "+ words[1] +".");
+			if(currentRoom.getItem(words[1]) != null) {
+				currentRoom.getItem(words[1]).open();
+			} else {
+				boolean found = false;
+				for(Item it : inventory) {
+					if(words[1].equals(it.toString())) {
+						it.open();
+						found = true;
+					}
+				}
+				if(found == false) {
+					Game.print("No item to open.\n");
+				}
+			}
+			break;
+		case "x":
+			Game.print("Goodbye!");
+			break;
+		case "save":
+			saveGame("saveGame");
+			break;
+		case "load":
+			loadGame("saveGame");
+			break;
+		case "talk":
+			currentRoom.getNPC(words[1]).talk();
+			break;
+		case "help":
+			Game.print("Player Commands \n"
+					+ "n: Go north \n"
+					+ "s: Go south \n"
+					+ "e: Go east \n"
+					+ "w: Go west \n"
+					+ "u: Go upwards \n"
+					+ "d: Go downwards \n"
+					+ "take 'item': Take an item \n"
+					+ "look 'item': Examine an item \n"
+					+ "i: Display inventory \n"
+					+ "use 'item': Use an item \n"
+					+ "open 'item': Open an item \n"
+					+ "talk 'name': Talk to person \n"
+					+ "x: Close game \n"
+					+ "save: Save game \n"
+					+ "load: Load game \n");
+		default:
+			Game.print("Unknown Command.\n");
+		}
+	}
 	
 	public static Scanner input = new Scanner(System.in);
 	
