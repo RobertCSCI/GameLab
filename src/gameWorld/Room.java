@@ -72,6 +72,14 @@ public class Room {
 	public void removeItem(String n) {
 		item.remove(n);
 	}
+
+	public void addNPC(String name, NPC c) {
+		npc.put(name,c);
+	}
+	
+	public NPC getNPC(String name) {
+		return npc.get(name);
+	}
 	
 	public boolean getLock() {
 		return lock;
