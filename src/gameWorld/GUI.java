@@ -13,14 +13,16 @@ public class GUI extends JFrame implements ActionListener {
 		private JPanel panel = new JPanel();
 		private JLabel label = new JLabel("What do you want to do?");
 		private JButton button = new JButton("Execute");
-		
+		private JTextField textField = new JTextField();
+	
 		public GUI() {
 			buildWindow();
 		}
 		
 		@Override
 		public void actionPerformed(ActionEvent event) {
-			
+			String s = textField.getText();
+			Game.processCommand(s);
 		}
 		
 		private void buildWindow() {
