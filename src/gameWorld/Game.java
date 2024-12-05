@@ -10,13 +10,14 @@ import java.util.HashMap;
 
 public class Game extends World {
 	public static void main(String[] args) {
-		runGame();
+		Game.print(currentRoom);
 	}
 
 	private static GUI gui = new GUI();
 	
 	public static void print(Object obj) {
 		System.out.println(obj.toString());
+		gui.textArea.append(obj.toString()+"\n");
 	}
 	
 	static Room currentRoom = World.buildWorld();
@@ -121,13 +122,13 @@ public class Game extends World {
 						Game.print("You need a spacesuit to reach the Hanger.\n");
 					} else {
 						currentRoom = nextRoom;
-						Game.print("\n");
+						Game.print(currentRoom+"\n");
 					}
 				} else if(nextRoom.getLock() == true) {
 					Game.print("This room is locked.\n");
 				} else {
 					currentRoom = nextRoom;
-					Game.print("\n");
+					Game.print(currentRoom+"\n");
 					}
 				}
 			break;
