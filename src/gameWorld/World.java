@@ -3,18 +3,18 @@ package gameWorld;
 public class World {
 	public static Room buildWorld() {
 		//Rooms
-		Room quarters = new Room("Living Quarters", "Living Quarters.");
-		Room entrance = new Room("Entrance","Entrance.");
-		Room armory = new Room("Armory","Armory.");
-		Room office = new Room("Office","Office.");
-		Room observatory = new Room("Observatory","Observatory.");
-		Room cantina = new Room("Cantina","Cantina.");
-		Room hanger = new Room("Hanger","Hanger");
-		Room vault = new Room("Vault","Vault");
-		Room hallway = new Room("Hallway","Hallway.");
-		Room lab = new Room("Lab","Lab.");
-		Room storage = new Room("Storage","Storage Room.");
-		Room main = new Room("Maintenance","Maintenance Room.");
+		Room quarters = new Room("Living Quarters", "This is the Living Quarters.");
+		Room entrance = new Room("Entrance","This is the Entrance to the facility.");
+		Room armory = new Room("Armory","This is the Armory, the room is full of empty lockers.");
+		Room office = new Room("Office","This is the Captain's Office.");
+		Room observatory = new Room("Observatory","This is an Observatory.");
+		Room cantina = new Room("Cantina","This is a Cantina.");
+		Room hanger = new Room("Hanger","This is the Hanger");
+		Room vault = new Room("Vault","This is the facility Vault behind the Office.");
+		Room hallway = new Room("Hallway","This is a Hallway.");
+		Room lab = new Room("Lab","This is the Laboratory.");
+		Room storage = new Room("Storage","This is a Storage Room.");
+		Room main = new Room("Maintenance","This is the hanger's Maintenance Room.");
 		
 		//Items
 		Keycard keycard = new Keycard("Keycard", "This is a keycard.");
