@@ -12,6 +12,8 @@ public class Game extends World {
 	public static void main(String[] args) {
 		runGame();
 	}
+
+	private static GUI gui = new GUI();
 	
 	public static void print(Object obj) {
 		System.out.println(obj.toString());
