@@ -9,7 +9,7 @@ public class GUI extends JFrame implements ActionListener {
 			new GUI();
 		}
 		
-		private JTextArea textArea = new JTextArea();
+		public JTextArea textArea = new JTextArea();
 		private JPanel panel = new JPanel();
 		private JLabel label = new JLabel("What do you want to do?");
 		private JButton button = new JButton("Execute");
@@ -22,6 +22,7 @@ public class GUI extends JFrame implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent event) {
 			String s = textField.getText();
+			System.out.println(s);
 			Game.processCommand(s);
 		}
 		
@@ -35,10 +36,9 @@ public class GUI extends JFrame implements ActionListener {
 			label.setForeground(Color.BLACK);
 			label.setBackground(Color.WHITE);
 			panel.add(label,0);
-			TextField text = new TextField(" ");
-			text.setForeground(Color.BLACK);
-			text.setBackground(Color.WHITE);
-			panel.add(text,1);
+			textField.setForeground(Color.BLACK);
+			textField.setBackground(Color.WHITE);
+			panel.add(textField,1);
 			button.addActionListener(this);
 			button.setFont(new Font(null,Font.BOLD,15));
 			button.setForeground(Color.WHITE);
