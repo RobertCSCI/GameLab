@@ -44,6 +44,8 @@ public class GUI extends JFrame implements ActionListener {
 			button.setForeground(Color.WHITE);
 			button.setBackground(Color.BLACK);
 			panel.add(button,2);
+			JScrollPane pane = new JScrollPane(textArea);
+			add(pane, BorderLayout.CENTER);
 			
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setSize(500, 500);
