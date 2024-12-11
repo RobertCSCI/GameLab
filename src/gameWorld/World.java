@@ -11,11 +11,13 @@ public class World {
 		Room office = new Room("Office","This is the Captain's Office, behind the desk is a huge vault door.");
 		Room observatory = new Room("Observatory","This is an Observatory, it's packed with science equipment you don't fully understand.");
 		Room cantina = new Room("Cantina","This is a Cantina, the leisure area with food and drinks. Looks like the manager is still here.");
-		Room hanger = new Room("Hanger","This is the Hanger, only one spaceship is left. You could escape if you could fix it.");
-		Room vault = new Room("Vault","This is the facility Vault behind the Captain's Office.");
+		Room hanger = new Room("Hanger","This is the Hanger, it's pretty much empty and the door to Maintenance is jammed."
+				+ "Only one spaceship is left, you could escape the facility if you fix it.");
+		Room vault = new Room("Vault","This is the facility Vault behind the Captain's Office, there is a table with codes for a spaceship.");
 		Room hallway = new Room("Hallway","This is a Hallway.");
 		Room lab = new Room("Lab","This is the Laboratory.");
-		Room storage = new Room("Storage","This is a Storage Room.");
+		Room storage = new Room("Storage","This is a Storage Room, there are many boxes and luggage around the room."
+				+ "One open box is labeled 'Masterkeys' has one key left.");
 		Room main = new Room("Maintenance","This is the hanger's Maintenance Room.");
 			
 		//Items
@@ -27,15 +29,20 @@ public class World {
 		Battery battery = new Battery("Battery", "This is a battery needed to start up a spaceship.");
 		Codes codes = new Codes("Codes","These are the codes required to operate and pilot a spaceship.");
 		Hyperdrive hyperdrive = new Hyperdrive("Hyperdrive","This is the hyperdrive for a spaceship.");
-		Beamsword beamsword = new Beamsword("Beamsword", "This is a Beamsword, it looks like something from those old Sci-Fi movies.");
+		Item lockers = new Item("Lockers","Most of the lockers are empty except one which has some kind of hilt for a sword,"
+				+ "the locker has a nametag that says 'Beamsword'.");
+		Beamsword beamsword = new Beamsword("Beamsword", "This is a Beamsword, it looks like something from those old Sci-Fi movies."
+				+ "This can be used to open jammed doors or doors with no available keycards.");
 		Item suit = new Item("Spacesuit", "This is a Space Suit, it will be required to traverse outside the station to the Hanger.");
 		Safe safe = new Safe("Safe", "This is the safe in the Captain's Office, It's an impressive safe!");
 		Diamond Diamond = new Diamond("Diamond", "This is a diamond! You should eventually return this to the Cantina manager.");
 		Combination combo = new Combination("Combo","This is the combination needed to open the safe in the Captain's Office.");
+		Item notes = new Item("Notes","These are lab notes, they look very important");
+		Safe suitcase = new Safe("Suitcase","This is a case that contains the spacesuit needed to go outside the facility.");
 			
 		//NPCs
-		Scientist sci = new Scientist("Scientist","Head Scientist of the facility");
-		Manager man = new Manager("Manager","Manager of the Cantina.");
+		Scientist sci = new Scientist("Scientist","Ayla; Head Scientist of the facility");
+		Manager man = new Manager("Manager","Dominick; Manager of the Cantina.");
 			
 		quarters.addExit(entrance, 'e');
 		quarters.addExit(armory, 'n');
@@ -53,8 +60,6 @@ public class World {
 		entrance.setLock(false);
 				
 		cantina.addExit(entrance, 'w');
-		cantina.addItem("Battery", battery);
-		cantina.addItem("Armorykey", keycard2);
 		cantina.addNPC("Manager", man);
 		cantina.setLock(true);
 				
@@ -69,7 +74,8 @@ public class World {
 		hallway.setLock(false);
 				
 		lab.addExit(hallway, 's');
-		lab.addItem("Spacesuit", suit);
+		lab.addItem("Suitcase", suitcase);
+		lab.addItem("Notes", notes);
 		lab.setLock(false);
 				
 		storage.addExit(hallway, 'n');
@@ -78,6 +84,7 @@ public class World {
 				
 		armory.addExit(quarters, 's');
 		armory.addItem("Beamsword", beamsword);
+		armory.addItem("Lockers", lockers);
 		armory.setLock(false);
 				
 		observatory.addExit(entrance, 's');
