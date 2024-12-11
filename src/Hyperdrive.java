@@ -1,4 +1,4 @@
-package gameLab;
+package gameWorld;
 
 public class Hyperdrive extends Item {
 	public Hyperdrive(String name, String desc) {
