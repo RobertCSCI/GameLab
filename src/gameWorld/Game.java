@@ -47,6 +47,8 @@ public class Game extends World {
 	}
 	
 	static ArrayList<Item> inventory = new ArrayList<Item>();
+
+	public static ArrayList<Item> spaceship = new ArrayList<Item>();
 	
 	public Item getInvItem(String name) {
 		Item item = null;
@@ -70,6 +72,7 @@ public class Game extends World {
 			stream.writeObject(currentRoom);
 			stream.writeObject(rooms);
 			stream.writeObject(inventory);
+			stream.writeObject(spaceship);
 			stream.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("File "+fileName+" not found.");
@@ -86,6 +89,7 @@ public class Game extends World {
 			currentRoom = (Room) stream.readObject();
 			rooms = (HashMap) stream.readObject();
 			inventory = (ArrayList) stream.readObject();
+			spaceship = (ArrayList) stream.readObject();
 			stream.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("File "+fileName+" not found.");
@@ -98,6 +102,10 @@ public class Game extends World {
 	}
 
 	public static void processCommand(String command) {
+		Game.print("You wake up inside an abandoned facility stationed on the moon,"
+				+ "the only thing that you can piece together is that you just woke up from a coma.");
+		Game.print(currentRoom+"\n");
+		Game.print("Where do you want to go? ");
 		String[] words = command.split(" ");
 		
 		switch(words[0]) {
@@ -232,6 +240,17 @@ public class Game extends World {
 					+ "x: Close game \n"
 					+ "save: Save game \n"
 					+ "load: Load game \n");
+		case "board":
+				int count = 0;
+				if(currentRoom.getName().equals("Hanger")) {
+					for(Item it: spaceship) {
+						count++;
+					}
+					if(count == 3) {
+						Game.print("You board the spaceship and escape the facility.\n");
+					}
+				}
+				break;
 		default:
 			Game.print("Unknown Command.\n");
 		}
@@ -382,6 +401,17 @@ public class Game extends World {
 						+ "x: Close game \n"
 						+ "save: Save game \n"
 						+ "load: Load game \n");
+			case "board":
+				int count = 0;
+				if(currentRoom.getName().equals("Hanger")) {
+					for(Item it: spaceship) {
+						count++;
+					}
+					if(count == 3) {
+						System.out.println("You board the spaceship and escape the facility.\n");
+					}
+				}
+				break;
 			default:
 				System.out.println("Unknown Command.\n");
 			}
