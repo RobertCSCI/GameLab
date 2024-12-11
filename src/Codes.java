@@ -1,4 +1,4 @@
-package gameLab;
+package gameWorld;
 
 public class Codes extends Item {
 	public Codes(String name, String desc) {
