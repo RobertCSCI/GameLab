@@ -1,4 +1,4 @@
-package gameLab;
+package gameWorld;
 
 public class Manager extends NPC {
 	public Manager(String name, String desc) {
