@@ -239,7 +239,8 @@ public class Game extends World {
 					+ "talk 'name': Talk to person \n"
 					+ "x: Close game \n"
 					+ "save: Save game \n"
-					+ "load: Load game \n");
+					+ "load: Load game \n"
+				  	+ "board: Board spaceship and end game \n");
 		case "board":
 				int count = 0;
 				if(currentRoom.getName().equals("Hanger")) {
@@ -248,6 +249,9 @@ public class Game extends World {
 					}
 					if(count == 3) {
 						Game.print("You board the spaceship and escape the facility.\n");
+						return;
+					} else {
+						Game.print("You still need to repair the spaceship.");
 					}
 				}
 				break;
@@ -400,7 +404,8 @@ public class Game extends World {
 						+ "talk 'name': Talk to person \n"
 						+ "x: Close game \n"
 						+ "save: Save game \n"
-						+ "load: Load game \n");
+						+ "load: Load game \n"
+						+ "board: Board spaceship and end game \n");
 			case "board":
 				int count = 0;
 				if(currentRoom.getName().equals("Hanger")) {
@@ -409,6 +414,9 @@ public class Game extends World {
 					}
 					if(count == 3) {
 						System.out.println("You board the spaceship and escape the facility.\n");
+						return;
+					} else {
+						System.out.println("You still need to repair the spaceship.");
 					}
 				}
 				break;
