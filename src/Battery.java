@@ -1,4 +1,4 @@
-package gameLab;
+package gameWorld;
 
 public class Battery extends Item {
 	public Battery(String name, String desc) {
