@@ -6,20 +6,24 @@ public class Scientist extends NPC {
 	}
 	
 	int count = 0;
+	Item notes = new Item("Notes","These are lab notes, they look very important");
 	
 	public void talk() {
 		if(count == 0) {
-			say("Introduction");
+			say("I thought I'd be stuck in here forever, Thanks for getting the door open."
+					+ "I'm Alya, the head scientist of this facility.");
 			String[] options = {
-					"Option 1",
-					"Option 2"
+					"Nice to meet you.",
+					"Whatever, can you help me get out of here or not?"
 			};
 			getResponse(options);
 		} else if(count == 1) {
-			say("\nNext Dialogue");
+			say("\nIf you go down the elevator, there's a Masterkey which you need to go up the elevator to the office."
+					+ "There's also a spacesuit which you need to reach the hanger, and if you get me some important lab notes,"
+					+ "I'll give you the combination for the safe in the office.");
 			String[] options = {
-					"Option 1",
-					"Option 2"
+					"I think I got all that, No problem.",
+					"I hate doing chores, but I'll do what I can."
 			};
 			getResponse(options);
 		} else {
@@ -32,28 +36,30 @@ public class Scientist extends NPC {
 		if(count == 0) {
 			switch(option) {
 				case 1:
-					say("Response 1\n");
+					say("I'm guessing you're trying to get back to Earth, I can help you if you need it.\n");
 					break;
 				case 2:
-					say("Response 2");
-					Game.print("Dialogue\n");
+					say("Sure, as long as you don't give me that attitude.");
 					break;
 			}
 		} else {
 			switch(option) {
 				case 1:
-					say("Response 3");
-					Game.print("Dialogue\n");
+					say("I have faith in you, I'll be waiting.");
 					break;
 				case 2:
-					say("Response 4");
-					Game.print("Dialogue\n");
+					say("Don't worry, you'll be out of here in no time.");
 					break;
 			}
 		}
 	}
 
 	public void give(Item i) {
-		//Combination combo = new Combination("Combo","This is a combination for a safe.");
+		if(i.toString().equals("Notes")) {
+			say("Thank you so much for getting me these notes, here's that combination for the safe.");
+			Game.print("You trade with Ayla the lab notes for the safe combination.");
+			Game.inventory.remove(notes);
+			Game.inventory.add(new Combination("Combo","This is a combination for a safe."));
+		}
 	}
 }
