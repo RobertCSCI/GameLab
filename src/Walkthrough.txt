@@ -1,0 +1,18 @@
+Comp-Sci: Game Lab Walkthrough
+1.	Find keycard in living quarters (starting room) to unlock cantina
+2.	Optional: Find map in entrance room
+3.	Talk to cantina manager in the cantina, acquire armory keycard
+4.	Find beam sword in armory and use to unlock observatory
+5.	Talk to scientist in the observatory
+6.	Go down elevator in starting room
+7.	Acquire the spacesuit and lab notes in the laboratory 
+8.	Acquire the master key in the storage room
+9.	Give the lab notes to the scientist and acquire the safe combination
+10.	Go up the elevator in the starting room
+11.	Unlock the safe in the office and acquire the diamond
+12.	Use the diamond to unlock the safe and acquire the spaceship codes
+13.	Give the diamond to the manager and acquire the spaceship battery
+14.	Go to the hanger and use beam sword to unlock the maintenance room
+15.	Acquire the hyperdrive from the maintenance room
+16.	Use all three parts to repair the spaceship and escape
+17.	The end
