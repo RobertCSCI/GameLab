@@ -1,36 +1,36 @@
 Living Quarters
-This is the Living Quarters.
+This is the Living Quarters, it's full of beds and futuristic furniture. There is also some kind of deactivated droid in the corner.
 #
 Entrance
-This is the Front Entrance to the facility.
+This is the Entrance to the facility, the front desk is empty and there is a picture of the facility. The frame looks dented, this picture could be used as a map.
 #
 Armory
-This is the Armory.
+This is the Armory, the room is full of empty lockers.
 #
 Office
-This is the Captain's Office.
+This is the Captain's Office, behind the desk is a huge vault door.
 #
 Observatory
-This is the Observatory.
+This is an Observatory, it's packed with science equipment you don't fully understand.
 #
 Cantina
-This is the Cantina.
+This is a Cantina, the leisure area with food and drinks. Looks like the manager is still here.
 #
 Hanger
-This is the Hanger Bay.
+This is the Hanger, it's pretty much empty and the door to Maintenance is jammed. Only one spaceship is left, you could escape the facility if you fix it.
 #
 Vault
-This is the Vault in the Captain's Office.
+This is the facility Vault behind the Captain's Office, there is a table with codes for a spaceship.
 #
 Hallway
 This is a Hallway.
 #
 Lab
-This is the Laboratory.
+This is the Laboratory, there is a case hanging on the wall with a spacesuit, as well as many desks and lab stations with many notes and papers.
 #
 Storage
-This is a Storage Room.
+This is a Storage Room, there are many boxes and luggage around the room. One open box is labeled 'Masterkeys' has one key left.
 #
 Maintenance
-This is the Hanger Bay Maintenance Room.
+This is the hanger's Maintenance Room. There is one last hyperdrive in the room.
 #
