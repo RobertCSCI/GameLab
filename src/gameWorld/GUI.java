@@ -27,7 +27,7 @@ public class GUI extends JFrame implements ActionListener {
 		}
 		
 		private void buildWindow() {
-			setTitle("Game Title");
+			setTitle("Moon Escape");
 			setLayout(new BorderLayout());
 			panel.setLayout(new GridLayout(3,1));
 			add(textArea,BorderLayout.CENTER);
